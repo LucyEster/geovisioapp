@@ -22,7 +22,7 @@ const HashTagList = () => {
             <HashTagItem id={index} hashtag={hashtag}/>
         )}
     </div>
-  ) : <></>
+  ) : <> Não há hashtags cadastradas. </>
 
 }
 export default HashTagList;
