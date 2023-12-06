@@ -6,7 +6,6 @@
     background-color: rgba(113, 110, 110, 0.689);
     left: 0;
     top: 0;
-    display: none;
 }
 
 
@@ -61,7 +60,6 @@ label{
 }
 
 #catalogImgPreview {
-    display: none;
     width: 100%;
     height: 100%;
 }

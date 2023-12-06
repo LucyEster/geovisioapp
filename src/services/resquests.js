@@ -106,21 +106,21 @@ export const getHashtags = async () => {
   --------------------------------------------------------------------------------------
 */
 
-export const postGeoCatalog = async (
-    img, 
-    latitudeInput, 
-    longitudeInput, 
-    titleInput, 
-    descInput,
-    hashtagInput
-   ) => {
+export const postGeoCatalog = async ({
+    latitude, 
+    longitude, 
+    title, 
+    description, 
+    hashtag,
+    img_source
+}) => {
   const formData = new FormData();
-  formData.append('latitude', latitudeInput);
-  formData.append('longitude', longitudeInput);
-  formData.append('title', titleInput);
-  formData.append('description', descInput);
-  formData.append('hashtag', hashtagInput);
-  formData.append('img_source', img);
+  formData.append('latitude', latitude);
+  formData.append('longitude', longitude);
+  formData.append('title', title);
+  formData.append('description', description);
+  formData.append('hashtag', hashtag);
+  formData.append('img_source', img_source);
 
   let url = baseURL + 'geo_catalog';
   fetch(url, {

@@ -10,6 +10,7 @@ export const MapViewContext = createContext(null);
 function App() {
   const [showMap, setShowMap] = useState(true);
   const [showCatalogs, setShowCatalogs] = useState(false);
+  const [showNewCatalog, setShowNewCatalog] = useState(false)
   const [centerMap, setCenterMap] = useState(null);
 
   const handleShowMap = () => {
@@ -29,7 +30,8 @@ function App() {
         centerMap,
         setShowMap,
         setShowCatalogs,
-        setCenterMap
+        setCenterMap,
+        setShowNewCatalog
       }}
     >
     <div className="App">
@@ -38,7 +40,7 @@ function App() {
         handleShowCatalogs={handleShowCatalogs}/>
       <Map active={showMap}/>
       <GeoCatalogsView active={showCatalogs}/>
-      <NewCatalog/>
+      <NewCatalog active={showNewCatalog}/>
     </div>
     </MapViewContext.Provider>
   );
