@@ -1,0 +1,36 @@
+.Button {
+    width: 200px; 
+    height: auto;
+    padding: 1em;
+    border: 1px solid rgb(95, 141, 211);
+    border-radius: 40px;
+    text-align: center;
+    color: white;
+    background-color: rgba(95, 141, 211, 0.777);
+    margin: 0px 1em;
+    align-self:center;
+}
+
+.Button:hover {
+    background-color: #2ab53a;
+    border: 1px solid rgb(21, 74, 28);
+    color: white;
+    cursor: pointer;
+}
+
+.CenterMapButton{
+    width: fit-content; 
+    height: auto;
+    padding: 0.2em;
+    border: 1px solid rgb(215, 61, 53);
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(215, 61, 53);
+    margin-left: 10px;
+}
+
+.CenterMapButton:hover{
+    cursor: pointer;
+    background-color:rgb(215, 61, 53); 
+    color: white;
+}

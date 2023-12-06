@@ -1,0 +1,41 @@
+.GeoCatalogItem{
+    height: fit-content;
+    width: 20em;
+    text-justify: distribute;
+    background-color: rgb(251, 254, 255);
+    margin: 10px;
+    border: 1px solid rgb(128, 140, 136);
+    border-radius: 5px;
+   }
+   
+.GeoCatalogItem:hover{
+    box-shadow: 0 0 10px #719ECE;
+}
+
+p, h4{
+    margin: 20px 10px;
+    text-align: left;
+}
+
+.GeoCatalogItem-imgTumb{
+    width: 20em;
+    height: 10em;
+    object-fit:cover;
+}
+
+.GeoCatalogItem-longitude, .GeoCatalogItem-latitude {
+    display: none;
+}
+
+.GeoCatalogItem-hashtag{
+    background-color: #719ECE;
+    color: white;
+    border: 1px solid #537398;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 10px;
+    width: fit-content;
+    height: auto;
+    max-width: 17em;
+    overflow-wrap: break-word;
+}

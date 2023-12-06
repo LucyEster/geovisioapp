@@ -1,0 +1,5 @@
+.HashtagList{
+    max-height: 100%;
+    overflow: scroll;
+    flex: 0.35;
+}

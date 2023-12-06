@@ -1,0 +1,8 @@
+.GeoCatalogList{
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    overflow: scroll;
+    max-height: 100%;
+    justify-content: center;
+}

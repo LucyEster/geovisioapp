@@ -1,0 +1,17 @@
+.HashtagItem{
+    background-color: #719ECE;
+    color: white;
+    border: 1px solid #537398;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 10px;
+    width: fit-content;
+    height: auto;
+    max-width: 17em;
+    overflow-wrap: break-word;
+}
+
+.HashtagItem:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px #35c932;
+}
