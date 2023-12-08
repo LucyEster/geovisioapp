@@ -16,21 +16,27 @@ const center = {
 
 const Map = ({active}) => {
 
-  const { centerMap } = useContext(MapViewContext);
+  const { setCenterMap, centerMap, setShowNewCatalog } = useContext(MapViewContext);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "YOUR_API_KEY"
+    googleMapsApiKey: "YOUR_KEY_HERE"
   })
 
   const [map, setMap] = useState(null)
-
+  
   const placeMarker = (location) => {
+    const latitude = location.lat();
+    const longitude = location.lng();
+
     new window.google.maps.Marker({
       position: location, 
       map: map
     });
-    postCoordinate(location.lat(), location.lng())
+
+    postCoordinate(latitude, longitude);
+    setCenterMap({latitude, longitude});
+    setShowNewCatalog(true);
   }
 
   const fulfillMarkersFromAPI = useCallback(async () => {
@@ -58,7 +64,6 @@ const Map = ({active}) => {
 
   const onCenter = useCallback(() => {
     if(!map || !centerMap) return;
-    console.log(centerMap)
     map.setCenter(
       new window.google.maps.LatLng(centerMap.latitude, centerMap.longitude)
     )
