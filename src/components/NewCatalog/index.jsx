@@ -36,22 +36,21 @@ const NewCatalog = ({active}) => {
         postGeoCatalog(catalog);
         setShowNewCatalog(false);
     }
- 
 
-  console.log(catalog)
+    const handleClose = () => { 
+        setShowNewCatalog(false);
+    }
     
   return active ? (
     <div id="NewCatalog-geoInfoInputbg">
         <div className="NewCatalog-geoInfoInput">
-            <div className="NewCatalog-closeBtn" onClick="closeWindow('geoInfoInputbg')">
+            <div className="NewCatalog-closeBtn" onClick={handleClose}>
                 <i className="fa fa-2x fa-xmark"></i>
             </div>
             <div className="NewCatalog-newInput">
             Coordenada selecionada:
                 <div className="NewCatalog-latlngView">
-                    Latitude:
                     <input disabled maxLength="144" value={centerMap.latitude} type="text" id="latitudeInput"/>
-                    Longitude: 
                     <input disabled maxLength="144" value={centerMap.longitude} type="text" id="longitudeInput"/>
                 </div>
                 Adicione um título:
@@ -61,7 +60,7 @@ const NewCatalog = ({active}) => {
                 Inclua uma hashtag:
                 <input required maxLength="40" type="text" onChange={handleHashtagChange}/>
                 <div id="uploadImgView">
-                    <label for="inputCatalogImg">
+                    <label htmlFor="inputCatalogImg">
                         Selecione uma imagem<br/>
                         <i className="fa fa-2x fa-camera"></i>
                         <input id="inputCatalogImg" onChange={onImageChange} type="file"/>

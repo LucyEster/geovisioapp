@@ -1,11 +1,18 @@
+import { MapViewContext } from '../../App';
 import './HashtagItem.css';
 
-import React from 'react'
+import React, { useContext } from 'react'
 
-const HashTagItem = ({hashtag, index}) => {
+const HashTagItem = ({hashtag}) => {
+
+  const { setHashtag } = useContext(MapViewContext);
+
+  const handleFilterCatalogs = () => {
+    setHashtag(hashtag)
+  }
 
   return (
-    <div id={hashtag} className="HashtagItem">
+    <div onClick={handleFilterCatalogs} className="HashtagItem">
         {hashtag}
     </div>
   );

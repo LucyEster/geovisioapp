@@ -17,11 +17,19 @@ const HashTagList = () => {
   fetchHashtags()
 
   return hashtags ? (
-    <div className="HashtagList">
-        {hashtags && hashtags.map((hashtag, index) =>
-            <HashTagItem id={index} hashtag={hashtag}/>
-        )}
-    </div>
+
+    <>
+      
+        <div className="HashtagList">
+        <h3>Filtre por hashtags:</h3>
+          {hashtags && hashtags.map((hashtag, index) =>
+              <HashTagItem 
+              key={hashtag} 
+              hashtag={hashtag}/>
+          )}
+        </div>
+    </>
+
   ) : <> Não há hashtags cadastradas. </>
 
 }

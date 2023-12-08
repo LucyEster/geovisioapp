@@ -5,17 +5,18 @@
     border: 1px solid rgb(95, 141, 211);
     border-radius: 40px;
     text-align: center;
-    color: white;
-    background-color: rgba(95, 141, 211, 0.777);
+    color:  rgba(95, 141, 211, 0.777);
+    background-color: white;
     margin: 0px 1em;
     align-self:center;
 }
 
 .Button:hover {
-    background-color: #2ab53a;
-    border: 1px solid rgb(21, 74, 28);
+    background-color:  rgba(95, 141, 211, 0.777);
+    border: 1px solid rgba(95, 141, 211, 0.777);
     color: white;
     cursor: pointer;
+    box-shadow: 0 0 10px #719ECE;
 }
 
 .CenterMapButton{

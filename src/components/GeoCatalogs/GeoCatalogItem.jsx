@@ -4,7 +4,7 @@ import React from 'react'
 import { formatImage } from '../../utils';
 import CenterMapButton from '../Button/CenterMapButton';
 
-const GeoCatalogItem = ({item, index}) => {
+const GeoCatalogItem = ({item}) => {
 
     let imgSrc = formatImage(item.img_source);
 

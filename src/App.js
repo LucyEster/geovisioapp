@@ -1,8 +1,8 @@
 import './App.css';
-import Map from './components/Map'
+import Map from './components/Map';
 import GeoCatalogsView  from './components/GeoCatalogsView/index';
-import Header from './components/Header'
-import { createContext, useContext, useState } from 'react'
+import Header from './components/Header';
+import { createContext, useState } from 'react';
 import NewCatalog from './components/NewCatalog';
 
 export const MapViewContext = createContext(null);
@@ -12,6 +12,7 @@ function App() {
   const [showCatalogs, setShowCatalogs] = useState(false);
   const [showNewCatalog, setShowNewCatalog] = useState(false)
   const [centerMap, setCenterMap] = useState(null);
+  const [hashtag, setHashtag] = useState(null);
 
   const handleShowMap = () => {
     setShowMap(true);
@@ -31,7 +32,9 @@ function App() {
         setShowMap,
         setShowCatalogs,
         setCenterMap,
-        setShowNewCatalog
+        setShowNewCatalog,
+        hashtag,
+        setHashtag
       }}
     >
     <div className="App">

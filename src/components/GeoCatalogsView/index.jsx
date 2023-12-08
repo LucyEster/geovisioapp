@@ -8,7 +8,6 @@ const GeoCatalogsView = ({active}) => {
 
    if (active) return (
     <div className="GeoCatalogsView">
-        <div>HashTagCount</div>
         <HashTagList/>
         <GeoCatalogList/>
     </div>
