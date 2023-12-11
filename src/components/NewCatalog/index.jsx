@@ -23,18 +23,27 @@ const NewCatalog = ({active}) => {
   const handleHashtagChange = (event) => setCatalog({...catalog, hashtag: event.target.value});
 
   const onImageChange = (event) => {
+    const isJpeg = event.target.files[0].name.split(".")[1] === "jpeg" ||
+                   event.target.files[0].name.split(".")[1] === "jpg"
+
     if (event.target.files && event.target.files[0]) {
-        let reader = new FileReader();
-        reader.onload = (e) => {
-          setCatalog({...catalog, img_source: e.target.result});
-        };
-        reader.readAsDataURL(event.target.files[0]);
-      }
+       if (!isJpeg) {
+         alert('Você só pode registrar imagens jpeg/jpg.');
+         return;
+       }
+       let reader = new FileReader();
+       reader.onload = (e) => {
+         setCatalog({...catalog, img_source: e.target.result});
+         event.target.value = null;
+       };
+       reader.readAsDataURL(event.target.files[0]);
     }
+  }
 
     const handleSendInfo = () => { 
         postGeoCatalog(catalog);
         setShowNewCatalog(false);
+        setCatalog({});
     }
 
     const handleClose = () => { 
@@ -63,7 +72,7 @@ const NewCatalog = ({active}) => {
                     <label htmlFor="inputCatalogImg">
                         Selecione uma imagem<br/>
                         <i className="fa fa-2x fa-camera"></i>
-                        <input id="inputCatalogImg" onChange={onImageChange} type="file"/>
+                        <input id="inputCatalogImg" accept="image/jpeg" onChange={onImageChange} type="file"/>
                         <br/>
                         <span id="imageName"></span>
                     </label>
