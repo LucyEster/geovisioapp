@@ -132,3 +132,33 @@ export const postGeoCatalog = async ({
       console.error('Error:', error);
     });
 }
+
+/*
+  --------------------------------------------------------------------------------------
+  Função para remover um catálogo geográfico do servidor via requisição DELETE
+  --------------------------------------------------------------------------------------
+*/
+  
+export const removeGeoCatalog = async (id) => {
+  let url = baseURL + 'geo_catalog';
+
+  
+    url = url + "?" + new URLSearchParams({
+      id,
+    })
+  
+
+  return new Promise((resolve, reject) => {
+    fetch(url, {
+      method: 'delete',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        reject(error);
+      });
+  })
+}

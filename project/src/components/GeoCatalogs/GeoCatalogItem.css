@@ -39,3 +39,10 @@ p, h4{
     max-width: 17em;
     overflow-wrap: break-word;
 }
+
+.GeoCatalogItem-header{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

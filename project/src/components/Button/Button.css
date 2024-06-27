@@ -35,3 +35,12 @@
     background-color:rgb(215, 61, 53); 
     color: white;
 }
+
+.DeleteButton {
+    color: rgb(215, 61, 53);
+    padding: 1em;
+}
+
+.DeleteButton:hover {
+    cursor: pointer;
+}

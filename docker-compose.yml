@@ -1,0 +1,7 @@
+
+services:
+  react-frontend:
+    build:
+      context: ./project # Caminho para o diretório onde está o Dockerfile do React
+    ports:
+      - "3000:3000"  # Mapeia a porta do host para a porta do container
