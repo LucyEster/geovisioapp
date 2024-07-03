@@ -6,16 +6,16 @@ Este APP tem por princípio realizar a **manipulação de dados** com **base geo
 
   
 
-À partir de **coordenadas** obtidas à partir do mapa, é possível cadastrar itens que são chamados de **catálogos geográficos**.
+À partir de **coordenadas** obtidas à partir do mapa, é possível cadastrar itens que são chamados de **catálogos geográficos**. Com a conexão com a **Weather API**, associamos a coordenada à uma cidade, região e país de qualquer lugar do mundo.
   
 
 ## Qual é a aplicação deste app?
 
-  
+
 
 Se você possui qualquer tipo de **dado georreferenciado**, é possível utilizar para **associar informações** do seu negócio à essas **coordenadas**.
 
-  
+
 
 É aplicável às áreas de:
 
@@ -35,29 +35,37 @@ Se você possui qualquer tipo de **dado georreferenciado**, é possível utiliza
 
 - Defesa Civil (Pontos de alagamento, risco de barrancos, etc.)
 
-  
+Para fins de exemplo, usaremos o sistema para cadastro de pontos de coleta de doações em diversas regiões do Brasil.
+
+
 
 Funciona da seguinte forma:
 
-1. Para cada **coordenada** cadastrada, é possível cadastradar um ou vários **catálogos**.
+1. Para cada **coordenada** cadastrada, é possível cadastradar um ou vários **catálogos**. Cada coordenada recebe informações de cidade, região e país da API externa. Adicionamos nome e contato na coordenada, para melhor identificá-la.
 
 2. Cada catálogo possui **título, descrição, hashtag, imagem** e estará **associada à uma coordenada**.
 
 3. Dada uma **hashtag**, é possível **filtrar catálogos** que utilizam essa hastag.
 
+4. Com a associação de nome e região, é possível buscar pela instituição e estado para melhor visualização.
+
+   
+
 ## Arquitetura
+
+
 
 Este projeto é a componente principal do projeto. A componente secundária é o backend, e as APIs externas são a do **Google Maps API** e **Weather API**.
 
+
+
 <img src="project/img/arquitetura.jpg" width="300px"/>
+
+
 
 ## Como executar
 
 ### APP React
-
-- Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
-
-- Após clonar o repositório, certifique-se que tenha instalado o [node.js](https://nodejs.org/en).
 
 - Este projeto utiliza a **Google Maps JS API**. Para que o mapa funcione, será necessário adicionar uma chave de API do Google.
 
@@ -71,7 +79,7 @@ Este projeto é a componente principal do projeto. A componente secundária é o
     googleMapsApiKey: "YOUR_KEY_HERE"
   })
 ```
-- Este projeto utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo  e também estará disponível até o dia **30/07/2024**. Caso haja problemas com a chave favor me contactar no Discord ou gerar uma nova chave apenas se cadastrando no site. A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
+- Este projeto também utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo  e também estará disponível até o dia **30/07/2024**. Caso haja problemas com a chave favor me contactar no Discord ou gerar uma nova chave apenas se cadastrando no site. A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
 
 ## Scripts
 
