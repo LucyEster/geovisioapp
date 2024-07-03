@@ -7,35 +7,6 @@ Este APP tem por princípio realizar a **manipulação de dados** com **base geo
   
 
 À partir de **coordenadas** obtidas à partir do mapa, é possível cadastrar itens que são chamados de **catálogos geográficos**.
-
-  
-
-Nesta primeira versão:
-
-- Ao clicar em um ponto do mapa, uma coordenada será salva no banco de dados através da API;
-
-- Abrirá uma janela de cadastro de um item de catálogo;
-
-- Ao clicar em "Adicionar catálogo", você cadastrará um catálogo geográfico;
-
-- Na Aba "catálogos" será possível visualizar uma lista de catálogos geográficos;
-
-- Ainda na Aba "catálogos" será possível filtrar catálogos pelas hashtags e centralizar catálogo no mapa.
-
-  
-
-Para backlog futuro, esta APP fornecerá:
-
-  
-
-- Edição e remoção de catálogos e coordenadas;
-
-- Categorização de grandes áreas;
-
-- Rotas de acompanhamento de atualização de catálogos em linha de tempo para determinada coordenada (é possível já cadastrar mais de um catálogo geográfico para uma determinada coordenada);
-
-- Rotas para Sistema de login.
-
   
 
 ## Qual é a aplicação deste app?
@@ -87,7 +58,7 @@ Funciona da seguinte forma:
 - Este projeto utiliza a **Google Maps JS API**. Para que o mapa funcione, será necessário adicionar uma chave de API do Google.
 
     1. Se você quiser criar uma chave própria, siga essas instruções presentes [aqui](https://support.google.com/looker-studio/answer/10988075?hl=pt-BR).
-    2. Se você for utilizar a chave disponibilizada por mim, ela estará disponível até **20/12/2023** e está restrita à funcionar apenas no link [http://localhost:3000](http://localhost:3000). Portanto, a app deve estar aberta apenas nesse link.
+    2. Se você for utilizar a chave disponibilizada por mim, ela estará disponível até **30/07/2024** e está restrita à funcionar apenas no link [http://localhost:3000](http://localhost:3000). Portanto, a app deve estar aberta apenas nesse link.
     3. Adicione a chave em **src>components>Map.jsx**, linha 23:
 
 ```
@@ -96,21 +67,19 @@ Funciona da seguinte forma:
     googleMapsApiKey: "YOUR_KEY_HERE"
   })
 ```
+- Este projeto utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo . A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
 
 ## Scripts
 
-> Para rodar o app, é preciso que a **geovisio_api** esteja funcionando na rota [http://localhost:5000](http://localhost:5000)!
-[Link para o repositório do Github do geovisio_api](https://github.com/LucyEster/geovisio_api)
+Este projeto utiliza docker para sua execução. O docker-compose.yml foi enviado na plataforma de estudos. Para rodá-lo, utilize o comando:
 
-No diretório do projeto, você pode rodar:
-
-### `npm install`
-Para instalar todas as dependências contidas no package.json
-
-### `npm start`
+### `docker-compose up --build`
+Para instalar as dependências do projeto frontend (React) e backend (Flask, Python)
 
 Roda o app no modo desenvolvimento.\
 Abra [http://localhost:3000](http://localhost:3000) para ver ele funcionando no Brownser.
+> Para rodar o app, é preciso que a **geovisio_api** esteja funcionando na rota [http://localhost:5000](http://localhost:5000)!
+[Link para o repositório do Github do geovisio_api](https://github.com/LucyEster/geovisio_api)
 
 ## Imagens
 
@@ -124,7 +93,6 @@ Abra [http://localhost:3000](http://localhost:3000) para ver ele funcionando no 
 
 ### Aba Catálogos
 <img src="img/catálogos.PNG" width="900px"/>
-
 
 
 ## Saiba Mais
