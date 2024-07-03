@@ -59,7 +59,7 @@ Este projeto é a componente principal do projeto. A componente secundária é o
 
 
 
-<img src="project/img/arquitetura.jpg" width="300px"/>
+<img src="project/img/arq.jpg" width="300px"/>
 
 
 
