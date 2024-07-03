@@ -49,7 +49,7 @@ Funciona da seguinte forma:
 
 Este projeto é a componente principal do projeto. A componente secundária é o backend, e as APIs externas são a do **Google Maps API** e **Weather API**
 
-<img src="projeto/img/arquitetura.jpg" width="500px"/>
+<img src="project/img/arquitetura.jpg" width="500px"/>
 
 ## Como executar
 
@@ -71,7 +71,7 @@ Este projeto é a componente principal do projeto. A componente secundária é o
     googleMapsApiKey: "YOUR_KEY_HERE"
   })
 ```
-- Este projeto utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo . A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
+- Este projeto utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo  e também estará disponível até o dia **30/07/2024**. Caso haja problemas com a chave favor me contactar no Discord ou gerar uma nova chave apenas se cadastrando no site. A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
 
 ## Scripts
 
@@ -88,15 +88,15 @@ Abra [http://localhost:3000](http://localhost:3000) para ver ele funcionando no 
 ## Imagens
 
 ### Aba Mapa
-<img src="projeto/img/home-mapa.PNG" width="500px"/>
+<img src="project/img/home-mapa.PNG" width="500px"/>
 
 
 ### Cadastro de catálogo
-<img src="projeto/img/home-cadastro-catalogo.PNG" width="500px"/>
+<img src="project/img/home-cadastro-catalogo.PNG" width="500px"/>
 
 
 ### Aba Catálogos
-<img src="projeto/img/catálogos.PNG" width="500px"/>
+<img src="project/img/catálogos.PNG" width="500px"/>
 
 
 ## Saiba Mais
