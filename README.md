@@ -47,9 +47,9 @@ Funciona da seguinte forma:
 
 ## Arquitetura
 
-Este projeto é a componente principal do projeto. A componente secundária é o backend, e as APIs externas são a do **Google Maps API** e **Weather API**
+Este projeto é a componente principal do projeto. A componente secundária é o backend, e as APIs externas são a do **Google Maps API** e **Weather API**.
 
-<img src="project/img/arquitetura.jpg" width="500px"/>
+<img src="project/img/arquitetura.jpg" width="300px"/>
 
 ## Como executar
 
