@@ -45,7 +45,11 @@ Funciona da seguinte forma:
 
 3. Dada uma **hashtag**, é possível **filtrar catálogos** que utilizam essa hastag.
 
-  
+## Arquitetura
+
+Este projeto é a componente principal do projeto. A componente secundária é o backend, e as APIs externas são a do **Google Maps API** e **Weather API**
+
+<img src="projeto/img/arquitetura.jpg" width="500px"/>
 
 ## Como executar
 
@@ -84,15 +88,15 @@ Abra [http://localhost:3000](http://localhost:3000) para ver ele funcionando no 
 ## Imagens
 
 ### Aba Mapa
-<img src="img/home-mapa.PNG" width="900px"/>
+<img src="projeto/img/home-mapa.PNG" width="500px"/>
 
 
 ### Cadastro de catálogo
-<img src="img/home-cadastro-catalogo.PNG" width="900px"/>
+<img src="projeto/img/home-cadastro-catalogo.PNG" width="500px"/>
 
 
 ### Aba Catálogos
-<img src="img/catálogos.PNG" width="900px"/>
+<img src="projeto/img/catálogos.PNG" width="500px"/>
 
 
 ## Saiba Mais
