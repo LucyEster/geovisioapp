@@ -83,7 +83,7 @@ Este projeto é a componente principal do projeto. A componente secundária é o
 
 ## Scripts
 
-Este projeto utiliza docker para sua execução. O docker-compose.yml foi enviado na plataforma de estudos. Para rodá-lo, utilize o comando:
+Este projeto utiliza docker para sua execução. O docker-compose.yml está na raiz do projeto. Para rodá-lo, utilize o comando:
 
 ### `docker-compose up --build`
 Para instalar as dependências do projeto frontend (React) e backend (Flask, Python)
