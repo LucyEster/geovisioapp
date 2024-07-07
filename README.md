@@ -79,7 +79,16 @@ Este projeto é a componente principal do projeto. A componente secundária é o
     googleMapsApiKey: "YOUR_KEY_HERE"
   })
 ```
-- Este projeto também utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo  e também estará disponível até o dia **30/07/2024**. Caso haja problemas com a chave favor me contactar no Discord ou gerar uma nova chave apenas se cadastrando no site. A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com/)
+
+- Este projeto também utiliza a **Weather API** como API externa. Para ativar as requisições é preciso adicionar a chave no arquivo **src/components/NewCatalog/index.jsx**, linha 33:
+
+```
+    url = url + "?" + new URLSearchParams({
+      q: `${centerMap?.latitude},${centerMap?.longitude}`,
+      key: "YOUR_KEY_HERE",
+    })
+```
+Esta chave também estará disponível até o dia **30/07/2024**. Caso haja problemas com a chave favor me contactar no Discord ou gerar uma nova chave apenas se cadastrando no site. A documentação se encontra no site oficial [www.weatherapi.com](https://www.weatherapi.com)
 
 ## Scripts
 
