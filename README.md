@@ -102,7 +102,24 @@ Abra [http://localhost:3000](http://localhost:3000) para ver ele funcionando no 
 > Para rodar o app, é preciso que a **geovisio_api** esteja funcionando na rota [http://localhost:5000](http://localhost:5000)!
 [Link para o repositório do Github do geovisio_api](https://github.com/LucyEster/geovisio_api)
 
-## Imagens
+
+## Imagens (V2 - atualizada)
+
+### Aba Mapa
+<img src="project/img/inicial.PNG" width="500px"/>
+
+
+### Cadastro de catálogo ( com busca de regiões )
+<img src="project/img/cadastro_catalogo_regiao.PNG" width="500px"/>
+
+
+### Aba Catálogos geral
+<img src="project/img/catálogos1.PNG" width="500px"/>
+
+### Aba Catálogos filtro região
+<img src="project/img/catálogos2.PNG" width="500px"/>
+
+## Imagens (V1)
 
 ### Aba Mapa
 <img src="project/img/home-mapa.PNG" width="500px"/>
