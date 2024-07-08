@@ -13,6 +13,8 @@ function App() {
   const [showNewCatalog, setShowNewCatalog] = useState(false)
   const [centerMap, setCenterMap] = useState(null);
   const [hashtag, setHashtag] = useState(null);
+  const [region, setRegion] = useState(null);
+  const [refetch, setRefetch] = useState(false);
 
   const handleShowMap = () => {
     setShowMap(true);
@@ -34,7 +36,11 @@ function App() {
         setCenterMap,
         setShowNewCatalog,
         hashtag,
-        setHashtag
+        setHashtag,
+        region,
+        setRegion,
+        refetch,
+        setRefetch
       }}
     >
     <div className="App">

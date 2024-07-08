@@ -34,7 +34,7 @@ const Map = ({active}) => {
       map: map
     });
 
-    postCoordinate(latitude, longitude);
+    //postCoordinate(latitude, longitude);
     setCenterMap({latitude, longitude});
     setShowNewCatalog(true);
   }

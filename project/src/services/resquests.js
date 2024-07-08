@@ -6,8 +6,14 @@ const baseURL = 'http://127.0.0.1:5000/';
   --------------------------------------------------------------------------------------
 */
 
-export const getCoordinates = async () => {
+export const getCoordinates = async (name) => {
   let url = baseURL + 'coordinates';
+
+  if (name) {
+    url = url + "?" + new URLSearchParams({
+      name,
+    })
+  }
 
   return new Promise((resolve, reject) => {
     fetch(url, {
@@ -30,20 +36,29 @@ export const getCoordinates = async () => {
   --------------------------------------------------------------------------------------
 */
 
-export const postCoordinate = async (lat, long) => {
+export const postCoordinate = async (geocatalog) => {
   const formData = new FormData();
-  formData.append('latitude', lat);
-  formData.append('longitude', long);
+  formData.append('latitude', geocatalog.latitude);
+  formData.append('longitude', geocatalog.longitude);
+  formData.append('city', geocatalog.city);
+  formData.append('region', geocatalog.region);
+  formData.append('country', geocatalog.country);
+  formData.append('name', geocatalog.name);
+  formData.append('contact', geocatalog.contact);
 
   let url = baseURL + 'coordinate';
-  fetch(url, {
-    method: 'post',
-    body: formData
-  })
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'post',
+        body: formData
+      })
+        .then((response) => resolve(response))
+        .catch((error) => {
+          console.error('Error:', error);
+          reject(error);
+        });
+    })
 }
   
 /*
@@ -52,12 +67,16 @@ export const postCoordinate = async (lat, long) => {
   --------------------------------------------------------------------------------------
 */
   
-export const getGeoCatalogs = async (hashtag) => {
+export const getGeoCatalogs = async (filter, region) => {
   let url = baseURL + 'geo_catalogs';
 
-  if (hashtag) {
+  if (filter && region) {
     url = url + "?" + new URLSearchParams({
-      hashtag,
+      region: filter,
+    })
+  } else if (filter) {
+    url = url + "?" + new URLSearchParams({
+      hashtag: filter,
     })
   }
 
@@ -102,6 +121,30 @@ export const getHashtags = async () => {
 
 /*
   --------------------------------------------------------------------------------------
+  Função para obter as hashtags existentes do servidor via requisição GET
+  --------------------------------------------------------------------------------------
+*/
+
+export const getRegions = async () => {
+  let url = baseURL + 'regions';
+
+  return new Promise((resolve, reject) => {
+    fetch(url, {
+      method: 'get',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data.regions);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        reject(error);
+      });
+  })
+}
+
+/*
+  --------------------------------------------------------------------------------------
   Função para envio de catálogos ao servidor
   --------------------------------------------------------------------------------------
 */
@@ -112,7 +155,12 @@ export const postGeoCatalog = async ({
     title, 
     description, 
     hashtag,
-    img_source
+    img_source,
+    name,
+    contact,
+    region,
+    city,
+    country,
 }) => {
   const formData = new FormData();
   formData.append('latitude', latitude);
@@ -121,6 +169,11 @@ export const postGeoCatalog = async ({
   formData.append('description', description);
   formData.append('hashtag', hashtag);
   formData.append('img_source', img_source);
+  formData.append('name', name);
+  formData.append('contact', contact);
+  formData.append('region', region);
+  formData.append('city', city);
+  formData.append('country', country);
 
   let url = baseURL + 'geo_catalog';
   fetch(url, {

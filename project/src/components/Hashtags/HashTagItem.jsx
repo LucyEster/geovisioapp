@@ -3,17 +3,22 @@ import './HashtagItem.css';
 
 import React, { useContext } from 'react'
 
-const HashTagItem = ({hashtag}) => {
+const HashTagItem = ({filter, filterType}) => {
 
-  const { setHashtag } = useContext(MapViewContext);
+  const { setHashtag, setRegion } = useContext(MapViewContext);
 
   const handleFilterCatalogs = () => {
-    setHashtag(hashtag)
+    if(filterType.includes("hashtag")){
+      setHashtag(filter)
+    }else{
+      setRegion(filter)
+    }
+    
   }
 
   return (
     <div onClick={handleFilterCatalogs} className="HashtagItem">
-        {hashtag}
+        {filter}
     </div>
   );
 }

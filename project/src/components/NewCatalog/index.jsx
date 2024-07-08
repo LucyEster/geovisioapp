@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './NewCatalog.css';
 import { MapViewContext } from '../../App';
-import { postGeoCatalog } from '../../services/resquests';
+import { postCoordinate, postGeoCatalog } from '../../services/resquests';
 
 const NewCatalog = ({active}) => {
     
@@ -21,8 +21,43 @@ const NewCatalog = ({active}) => {
   const handleTitleChange = (event) => setCatalog({...catalog, title: event.target.value});
   const handleDescChange = (event) => setCatalog({...catalog, description: event.target.value});
   const handleHashtagChange = (event) => setCatalog({...catalog, hashtag: event.target.value});
+  const handleNameChange = (event) => setCatalog({...catalog, name: event.target.value});
+  const handleContactChange = (event) => setCatalog({...catalog, contact: event.target.value});
+
+  useEffect(() => {
+    let url = 'https://api.weatherapi.com/v1/current.json';
+
+  
+    url = url + "?" + new URLSearchParams({
+      q: `${centerMap?.latitude},${centerMap?.longitude}`,
+      key: "YOUR_API_HERE",
+    })
+
+    if(centerMap)
+    fetch(url, {
+      method: 'get',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setCatalog({
+          ...catalog, 
+          city: data.location.name,
+          region: data.location.region,
+          country: data.location.country,
+          name: centerMap.name,
+          contact: centerMap.contact,
+      })
+      })
+      .catch((error) => {
+        console.log("Aconteceu um erro")
+        console.error('Error:', error);
+        //reject(error);
+      });
+  },[centerMap]);
 
   const onImageChange = (event) => {
+
     const isJpeg = event.target.files[0].name.split(".")[1] === "jpeg" ||
                    event.target.files[0].name.split(".")[1] === "jpg"
 
@@ -46,6 +81,19 @@ const NewCatalog = ({active}) => {
         setCatalog({});
     }
 
+    const handleSaveRegionInfo = async () => {
+      postCoordinate(catalog).then((result) => {
+
+        if(result.status === 200) {
+          alert("Região salva com sucesso!")
+        } else {
+          alert("Houve um problema ao salvar localização. Tente novamente mais tarde.")
+        }
+        
+        console.log(result)
+      })
+    }
+
     const handleClose = () => { 
         setShowNewCatalog(false);
     }
@@ -57,11 +105,35 @@ const NewCatalog = ({active}) => {
                 <i className="fa fa-2x fa-xmark"></i>
             </div>
             <div className="NewCatalog-newInput">
-            Coordenada selecionada:
+                Adicione informações da região:
                 <div className="NewCatalog-latlngView">
                     <input disabled maxLength="144" value={centerMap.latitude} type="text" id="latitudeInput"/>
                     <input disabled maxLength="144" value={centerMap.longitude} type="text" id="longitudeInput"/>
+                    <input disabled maxLength="144" value={catalog?.city} type="text" id="nameInput"/>
+                    <input disabled maxLength="144" value={catalog?.region} type="text" id="regionInput"/>
+                    <input disabled maxLength="144" value={catalog?.country} type="text" id="countryInput"/>
+                    <input 
+                      disabled={!!centerMap.name} 
+                      value={centerMap.name ?? catalog?.name} 
+                      required 
+                      maxLength="144" 
+                      type="text" 
+                      placeholder="Adicione um nome" 
+                      onChange={handleNameChange}
+                      />
+                    <input 
+                      disabled={!!centerMap.contact}
+                      value={centerMap.contact ?? catalog?.contact} 
+                      required 
+                      maxLength="144" 
+                      type="text" 
+                      placeholder="Adicione um contato" 
+                      onChange={handleContactChange}
+                      />
+                    <span disabled={!!centerMap.contact} onClick={handleSaveRegionInfo} className="NewCatalog-addBtn">Salvar localização</span>
                 </div>
+                
+                <div className="NewCatalog-divider"/>
                 Adicione um título:
                 <input required maxLength="144" type="text" onChange={handleTitleChange}/>
                 Adicione uma descrição:
